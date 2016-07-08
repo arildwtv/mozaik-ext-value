@@ -1,6 +1,6 @@
 # Mozaïk value widgets
 
-[![NPM version][npm-image]][npm-url]
+[![NPM version](https://badge.fury.io/js/mozaik-ext-value.svg)](https://npmjs.org/package/mozaik-ext-value)
 
 ## Preview
 
