@@ -2,6 +2,10 @@
 
 [![NPM version][npm-image]][npm-url]
 
+## Preview
+
+![value](https://raw.githubusercontent.com/arildwtv/mozaik-ext-value/master/preview/preview.png)
+
 ## Value Widget Configuration
 
 ### Api Configuration
@@ -15,6 +19,7 @@ No API configuration is needed.
   // ...
   {
     type:               'value.value',
+    title:              'Number of Likes',
     url:                'https://dl.dropboxusercontent.com/u/19253297/test.json',
     pathCurrent:        '$.current', /* optional */
     pathLastUpdated:    '$.lastUpdated', /* optional */
@@ -32,6 +37,7 @@ No API configuration is needed.
 key              | required | description
 -----------------|----------|-------------------------------------------------------------------
 `url`            | yes      | *The URL to fetch the value*
+`title`          | yes      | *The widget title*
 `prefix`         | no       | *Prefix of the value*
 `postfix`        | no       | *Postfix of the value*
 `pathCurrent`    | no       | *The JSON path to the 'current' value

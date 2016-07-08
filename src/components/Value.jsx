@@ -8,6 +8,7 @@ class Value extends Component {
     getApiRequest() {
         const {
             url,
+            title,
             prefix,
             postfix,
             pathCurrent,
@@ -16,9 +17,9 @@ class Value extends Component {
         } = this.props;
 
         return {
-            id: `value.value.${url}.${prefix}.${postfix}.` +
+            id: `value.value.${title}.${url}.${prefix}.${postfix}.` +
                 `${pathCurrent}.${pathChangeRate}.${pathLastUpdated}`,
-            params: { url, pathCurrent, pathChangeRate, pathLastUpdated }
+            params: { title, url, pathCurrent, pathChangeRate, pathLastUpdated }
         };
     }
 
@@ -29,7 +30,7 @@ class Value extends Component {
     render() {
         const state = this.state || {};
 
-        const { prefix, postfix } = this.props;
+        const { title, prefix, postfix } = this.props;
         const { current, lastUpdated, changeRate } = state;
 
         const parsedChangeRate = parseFloat(changeRate, 10).toFixed(2);
@@ -71,8 +72,8 @@ class Value extends Component {
         return (
             <div>
                 <div className="widget__header">
-                    Hello <span className="widget__header__subject">World!</span>
-                    <i className="fa fa-github-alt" />
+                    <span className="widget__header__subject">{{title}}</span>
+                    <i className="fa fa-balance-scale" />
                 </div>
                 <div className="widget__body">
                     {content}
