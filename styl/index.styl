@@ -1,0 +1,53 @@
+.value
+  &__wrapper
+    width  100%
+    height 100%
+
+  &__current-wrapper
+    display block
+    position absolute
+    top 50%
+    width 100%
+    transform translateY(-220%)
+    font-size 7rem
+    text-align center
+
+  &__prefix, &__postfix
+    color #ddd
+    font-size 5rem
+
+  &__change-rate-wrapper
+    display block
+    text-align center
+    width 100%
+    position absolute
+    bottom 4.5rem
+    font-size 2rem
+
+  &__change-rate::before
+    content '\00a0\00a0'
+
+  &__last-updated-wrapper
+    display block
+    width 100%
+    position absolute
+    text-align center
+    bottom 2rem
+
+  &__last-updated::before
+    content '\00a0\00a0'
+
+  &__text-down
+    color $failure-color
+
+  &__text-up
+    color $success-color
+
+  &__icon
+    color #ddd
+
+  &__icon-down
+    color $failure-color
+
+  &__icon-up
+    color $success-color
