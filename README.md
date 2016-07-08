@@ -4,21 +4,36 @@
 
 ## Value Widget Configuration
 
-### using `config.js`
+### Api Configuration
+
+No API configuration is needed.
+
+### Dashboard Configuration
 
 ```javascript
 {
-  //…
-  value: {
-    
+  // ...
+  {
+    type:               'value.value',
+    url:                'https://dl.dropboxusercontent.com/u/19253297/test.json',
+    pathCurrent:        '$.current', /* optional */
+    pathLastUpdated:    '$.lastUpdated', /* optional */
+    pathChangeRate:     '$.changeRate', /* optional */
+    prefix:             '$', /* optional */
+    postfix:            'ca$h', /* optional */
+    columns: 2, rows: 1,
+    x: 1, y: 0
   }
 }
 ```
 
 ### Parameters
 
-key       | required | description
-----------|----------|-------------------------------------------------------------------
-`url`     | yes      | *The URL to fetch the value*
-`prefix`  | no       | *Prefix of the value*
-`postfix` | no       | *Postfix of the value*
+key              | required | description
+-----------------|----------|-------------------------------------------------------------------
+`url`            | yes      | *The URL to fetch the value*
+`prefix`         | no       | *Prefix of the value*
+`postfix`        | no       | *Postfix of the value*
+`pathCurrent`    | no       | *The JSON path to the 'current' value
+`pathLastUpdated`| no       | *The JSON path to the 'lastUpdated' value
+`pathChangeRate` | no       | *The JSON path to the 'changeRate' value

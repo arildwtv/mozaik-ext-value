@@ -6,10 +6,19 @@ import Mozaik                          from 'mozaik/browser';
 class Value extends Component {
 
     getApiRequest() {
-        const { url, prefix, postfix } = this.props;
+        const {
+            url,
+            prefix,
+            postfix,
+            pathCurrent,
+            pathChangeRate,
+            pathLastUpdated
+        } = this.props;
+
         return {
-            id: `value.value.${url}.${prefix}.${postfix}`,
-            params: { url }
+            id: `value.value.${url}.${prefix}.${postfix}.` +
+                `${pathCurrent}.${pathChangeRate}.${pathLastUpdated}`,
+            params: { url, pathCurrent, pathChangeRate, pathLastUpdated }
         };
     }
 
