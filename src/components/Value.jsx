@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import reactMixin                      from 'react-mixin';
-import { ListenerMixin }               from 'reflux';
-import Mozaik                          from 'mozaik/browser';
+import reactMixin  from 'react-mixin';
+import { ListenerMixin } from 'reflux';
+import Mozaik from 'mozaik/browser';
+import ChangeRate from './ChangeRate.jsx';
+import LastUpdated from './LastUpdated.jsx';
+import { isDefined, createElementIf } from '../util';
 
 class Value extends Component {
 
@@ -33,12 +36,6 @@ class Value extends Component {
         const { title, prefix, postfix } = this.props;
         const { current, lastUpdated, changeRate } = state;
 
-        const parsedChangeRate = parseFloat(changeRate, 10).toFixed(2);
-
-        const direction = parsedChangeRate >= 0
-            ? 'up'
-            : 'down';
-
         const content = typeof current === 'undefined'
             ? <span />
             : (
@@ -54,18 +51,8 @@ class Value extends Component {
                             {postfix}
                         </span>
                     </span>
-                    <span className="value__change-rate-wrapper">
-                        <i className={`fa fa-arrow-${direction} value__icon-${direction}`} />
-                        <span className={`value__change-rate value__text-${direction}`}>
-                            {changeRate} %
-                        </span>
-                    </span>
-                    <span className="value__last-updated-wrapper">
-                        <i className="fa fa-clock-o value__icon" />
-                        <span className="value__last-updated">
-                            {lastUpdated}
-                        </span>
-                    </span>
+                    {createElementIf(isDefined(changeRate), ChangeRate, { changeRate })}
+                    {createElementIf(isDefined(lastUpdated), LastUpdated, { lastUpdated})}
                 </div>
             );
 
@@ -83,9 +70,13 @@ class Value extends Component {
     }
 }
 
-Value.defaultProps = {
-    lang:  'en',
-    limit: 3
+Value.propTypes = {
+    title: PropTypes.string,
+    prefix: PropTypes.string,
+    postfix: PropTypes.string,
+    pathCurrent: PropTypes.string,
+    pathChangeRate: PropTypes.string,
+    pathLastUpdated: PropTypes.string
 };
 
 reactMixin(Value.prototype, ListenerMixin);
