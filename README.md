@@ -2,6 +2,8 @@
 
 [![NPM version](https://badge.fury.io/js/mozaik-ext-value.svg)](https://npmjs.org/package/mozaik-ext-value)
 
+Value widget for the [Mozaïk](https://www.npmjs.com/package/mozaik) dashboard framework.
+
 ## Preview
 
 ![value](https://raw.githubusercontent.com/arildwtv/mozaik-ext-value/master/preview/preview.png)
@@ -24,8 +26,8 @@ No API configuration is needed.
     pathCurrent:        '$.current', /* optional */
     pathLastUpdated:    '$.lastUpdated', /* optional */
     pathChangeRate:     '$.changeRate', /* optional */
-    prefix:             '$', /* optional */
-    postfix:            'ca$h', /* optional */
+    prefix:             '', /* optional */
+    postfix:            ' likes', /* optional */
     columns: 2, rows: 1,
     x: 1, y: 0
   }
