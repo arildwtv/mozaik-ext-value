@@ -1,6 +1,6 @@
 {
   "name": "mozaik-ext-value",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Mozaik value widgets",
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "jsonpath": "0.2.6",
     "lodash": "3.10.1",
     "memory-cache": "0.0.5",
+    "moment": "2.14.1",
     "react-mixin": "3.0.4",
     "reflux": "0.4.0",
     "superagent": "1.8.3",

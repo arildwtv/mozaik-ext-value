@@ -33,8 +33,19 @@ class Value extends Component {
     render() {
         const state = this.state || {};
 
-        const { title, prefix, postfix } = this.props;
-        const { current, lastUpdated, changeRate } = state;
+        const {
+            title,
+            prefix,
+            postfix,
+            lastUpdatedFromNow = true,
+            lastUpdatedFormat = 'YYYY-MM-DDThh:mm:ssTZD'
+        } = this.props;
+
+        const {
+            current,
+            lastUpdated,
+            changeRate
+        } = state;
 
         const content = typeof current === 'undefined'
             ? <span />
@@ -51,8 +62,18 @@ class Value extends Component {
                             {postfix}
                         </span>
                     </span>
-                    {createElementIf(isDefined(changeRate), ChangeRate, { changeRate })}
-                    {createElementIf(isDefined(lastUpdated), LastUpdated, { lastUpdated})}
+                    {
+                        createElementIf(
+                            isDefined(changeRate),
+                            ChangeRate,
+                            { changeRate })
+                    }
+                    {
+                        createElementIf(
+                            isDefined(lastUpdated),
+                            LastUpdated,
+                            { lastUpdated, lastUpdatedFromNow, lastUpdatedFormat })
+                    }
                 </div>
             );
 

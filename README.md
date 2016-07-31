@@ -36,12 +36,14 @@ No API configuration is needed.
 
 ### Parameters
 
-key              | required | description
------------------|----------|-------------------------------------------------------------------
-`url`            | yes      | *The URL to fetch the value*
-`title`          | yes      | *The widget title*
-`prefix`         | no       | *Prefix of the value*
-`postfix`        | no       | *Postfix of the value*
-`pathCurrent`    | no       | *The JSON path to the 'current' value
-`pathLastUpdated`| no       | *The JSON path to the 'lastUpdated' value
-`pathChangeRate` | no       | *The JSON path to the 'changeRate' value
+key                 | required | description
+--------------------|----------|-------------------------------------------------------------------
+`url`               | yes      | *The URL to fetch the value*
+`title`             | yes      | *The widget title*
+`prefix`            | no       | *Prefix of the value*
+`postfix`           | no       | *Postfix of the value*
+`lastUpdatedFormat` | no       | *Format of the 'lastUpdated' value (default 'lYYYY-MM-DDThh:mm:ssTZD')*
+`lastUpdatedFromNow`| no       | *Whether to display the 'lastUpdated' value from now (default true)*
+`pathCurrent`       | no       | *The JSON path to the 'current' value*
+`pathLastUpdated`   | no       | *The JSON path to the 'lastUpdated' value*
+`pathChangeRate`    | no       | *The JSON path to the 'changeRate' value*
