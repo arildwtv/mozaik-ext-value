@@ -16,13 +16,15 @@ class Value extends Component {
             postfix,
             pathCurrent,
             pathChangeRate,
-            pathLastUpdated
+            pathLastUpdated,
+            headers,
+            sending
         } = this.props;
 
         return {
             id: `value.value.${title}.${url}.${prefix}.${postfix}.` +
-                `${pathCurrent}.${pathChangeRate}.${pathLastUpdated}`,
-            params: { title, url, pathCurrent, pathChangeRate, pathLastUpdated }
+                `${pathCurrent}.${pathChangeRate}.${pathLastUpdated}.${headers}.${sending}`,
+            params: { title, url, pathCurrent, pathChangeRate, pathLastUpdated, headers, sending }
         };
     }
 
