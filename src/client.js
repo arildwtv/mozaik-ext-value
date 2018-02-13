@@ -19,7 +19,8 @@ const client = mozaik => {
                 pathChangeRate,
                 pathLastUpdated,
                 headers,     // Headers, a JSON object of the headers
-                sending      // Any data that is being sent
+                sending,      // Any data that is being sent
+                icon
             } = params;
 
             return request.get(url).set(headers).send(sending)
