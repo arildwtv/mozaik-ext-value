@@ -16,13 +16,16 @@ class Value extends Component {
             postfix,
             pathCurrent,
             pathChangeRate,
-            pathLastUpdated
+            pathLastUpdated,
+            headers,
+            sending,
+            icon
         } = this.props;
 
         return {
             id: `value.value.${title}.${url}.${prefix}.${postfix}.` +
-                `${pathCurrent}.${pathChangeRate}.${pathLastUpdated}`,
-            params: { title, url, pathCurrent, pathChangeRate, pathLastUpdated }
+                `${pathCurrent}.${pathChangeRate}.${pathLastUpdated}.${headers}.${sending}.${icon}`,
+            params: { title, url, pathCurrent, pathChangeRate, pathLastUpdated, headers, sending, icon }
         };
     }
 
@@ -76,12 +79,14 @@ class Value extends Component {
                     }
                 </div>
             );
+        var icon = this.props.icon;
+        var className = !isDefined(icon) ? "fa fa-balance-scale" : icon
 
         return (
             <div>
                 <div className="widget__header">
                     <span className="widget__header__subject">{{title}}</span>
-                    <i className="fa fa-balance-scale" />
+                    <i className={className} />
                 </div>
                 <div className="widget__body">
                     {content}

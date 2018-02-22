@@ -17,10 +17,13 @@ const client = mozaik => {
                 url,
                 pathCurrent,
                 pathChangeRate,
-                pathLastUpdated
+                pathLastUpdated,
+                headers,     // Headers, a JSON object of the headers
+                sending,      // Any data that is being sent
+                icon
             } = params;
 
-            return request.get(url)
+            return request.get(url).set(headers || {}).send(sending || {})
                 .promise()
                 .then(res => {
                     const json = JSON.parse(res.text);
