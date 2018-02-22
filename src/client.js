@@ -23,7 +23,7 @@ const client = mozaik => {
                 icon
             } = params;
 
-            return request.get(url).set(headers).send(sending)
+            return request.get(url).set(headers || {}).send(sending || {})
                 .promise()
                 .then(res => {
                     const json = JSON.parse(res.text);
